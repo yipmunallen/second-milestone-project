@@ -30,22 +30,22 @@
                     </select>
             
                 <div>
-                  <label for="level" class="settings-heading">Level</label>
-                  <label class="settings display-inline">Easy
-                    <input type="radio" name="radio" id="easy">
-                  </label>
-                  <label class="settings display-inline">Medium
-                    <input type="radio" name="radio" id="medium">
-                  </label>
-                  <label class="settings display-inline">Hard
-                    <input type="radio" name="radio" id="hard">
-                  </label>
+                    <label for="level" class="settings-heading">Level</label>
+                    <div class="choose-difficulty">
+                        <input type="radio" id="easy" name="difficulty" value="easy">
+                        <label class="settings display-inline" for="easy">Easy</label>
+                        <input type="radio" id="medium" name="difficulty" value="medium">
+                        <label class="settings display-inline" for="medium">Medium</label>
+                        <input type="radio" id="hard" name="difficulty" value="hard">
+                        <label class="settings display-inline" for="hard">Hard</label>
+                    </div>
                 </div>
+
                 <div class="question-number">
                   <label for="questions" class="settings-heading">Number of questions</label>
                   <input name="questions" id="questions" class="settings display-block" type="number" min="1" max="20" />
                 </div>  
-                <button id="start" class="btns hvr-grow-shadow">Quiz Me!</button>
+                <button id="quiz-btn" class="btns hvr-grow-shadow submit">Quiz Me!</button>
             </div>
             <div>
                 <a href="/index.html" id="back-btn" class="btns hvr-grow-shadow">Back<i class="fas fa-undo"></i></a>
