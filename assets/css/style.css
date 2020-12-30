@@ -78,7 +78,7 @@ h1{
     min-width: 10rem;
 }
 
-button{
+button {
     width: 100%;
     cursor: pointer;
     font-family : Fredoka One, sans-serif;
@@ -163,9 +163,30 @@ ol li{
 
 .choose-difficulty label:hover {
     border: 3px solid #61E342;
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .choose-difficulty input[type="radio"]:checked + label {
     border: 3px solid #61E342;
 }
+
+/* QUIZ */
+
+.answers{
+    background-color: rgb(137, 46, 255);
+    border-radius: 1rem;
+    margin-bottom: 1.3rem;
+    min-width: 30rem;
+    padding: 1.5rem;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.answers:hover{
+    cursor: pointer;
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+
+}
+
