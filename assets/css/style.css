@@ -172,6 +172,53 @@ ol li{
 
 /* QUIZ */
 
+.quiz-heading{
+    font-family:Staatliches;
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+#progress-bar{
+    margin: 0 auto;
+    width: 20rem;
+    height: 1.5rem;
+    border: 0.2rem solid rgb(137, 46, 255);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+#progress-bar-full{
+    height: 100%;
+    border: 0.2rem solid rgb(137, 46, 255);
+    width: 0%;
+}
+
+@media (min-width:700px){
+
+    #quiz-header > div {
+        display: inline-block;
+    }
+    #progress{
+        float:left;
+    }
+    #timer{
+        float:right;
+    }
+}
+
+
+
+#quiz-content{
+    margin-top: 10rem;
+}
+
+
+
+#question p{
+    margin: 2rem;
+    font-size: 2.5rem;
+}
+
 .answers{
     background-color: rgb(137, 46, 255);
     border-radius: 1rem;
@@ -187,6 +234,13 @@ ol li{
     box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+}
 
+.correct-answer{
+    background-color: #61E342; 
+}
+
+.incorrect-answer{
+    background-color: #ff0000;
 }
 
