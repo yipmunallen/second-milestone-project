@@ -1,6 +1,3 @@
-
-
-
 const progressHeading = document.getElementById(`progress-heading`);
 const progressBar = document.getElementById(`progress-bar`);
 const progressBarFull = document.getElementById("progress-bar-full");
@@ -11,7 +8,7 @@ const answers = Array.from(document.getElementsByClassName(`answers`));
 let currentQuestion = {};
 let questionCounter = 0;
 let startTime = 10;
-let acceptingAnswers = true;
+let acceptingAnswers = false;
 let questionList = [];
 
 function getQuizData(quizData){
@@ -34,34 +31,42 @@ function printDataToConsole(data){
 
 getQuizData( printDataToConsole);
 
-    //Get question
 getQuizData(function(quizData){
 
     questionIndex = 0;
     currentQuestion = quizData.results[questionIndex];
+    
+    getQuestion();
+    getAnswers();
+})
+
+function getQuestion(){
 
     question.innerHTML = `${currentQuestion.question}`;
+}
+
+function getAnswers(){
 
     correctAnswer = answers[Math.floor(Math.random()*answers.length)];
     console.log(correctAnswer);
     correctAnswer.innerHTML = `${currentQuestion.correct_answer}`;
 
-    
-    for(i=0 ; i<4 ; i++){
-        for( j=0 ; j<3 ; j++){
-            if(answers[i] == correctAnswer){
-
-                console.log("here");
-            }
-            else{
-                    console.log("J is" + j);
-                    console.log("I is" + i);
-                    answers[i].innerHTML = `${currentQuestion.incorrect_answers[j]}`;
-                                console.log("here2");
+    var answerOptions = new Array();
  
-            }
+    for( i=j=0 ; j<3 && i < 4 ; i++){
+        if(answers[i] == correctAnswer){
+            var correctAnswerEntry = new Array();
+            correctAnswerEntry = [ currentQuestion.correct_answer , "Correct Answer" ];
+            answerOptions.push(correctAnswerEntry);
+        }
+        else{
+            answers[i].innerHTML = `${currentQuestion.incorrect_answers[j]}`;
+            var incorrectAnswerEntry = new Array();
+            incorrectAnswerEntry = [ currentQuestion.incorrect_answers[j] , "Incorrect Answer" ];
+            answerOptions.push(incorrectAnswerEntry);
+            j++;
         }
     };
 
-})
-
+    console.log(answerOptions);
+}
