@@ -55,14 +55,17 @@ function getAnswers(){
  
     for( i=j=0 ; j<3 && i < 4 ; i++){
         if(answers[i] == correctAnswer){
+            console.log(answers[i]);
             var correctAnswerEntry = new Array();
-            correctAnswerEntry = [ currentQuestion.correct_answer , "Correct Answer" ];
+            correctAnswerEntry = [ currentQuestion.correct_answer , "Correct" ];
             answerOptions.push(correctAnswerEntry);
+            acceptingAnswers = true;
         }
         else{
             answers[i].innerHTML = `${currentQuestion.incorrect_answers[j]}`;
+            console.log(answers[i]);
             var incorrectAnswerEntry = new Array();
-            incorrectAnswerEntry = [ currentQuestion.incorrect_answers[j] , "Incorrect Answer" ];
+            incorrectAnswerEntry = [ currentQuestion.incorrect_answers[j] , "Incorrect" ];
             answerOptions.push(incorrectAnswerEntry);
             j++;
         }
@@ -70,3 +73,14 @@ function getAnswers(){
 
     console.log(answerOptions);
 }
+
+
+answers.forEach((answersOptions) => {
+    answersOptions.addEventListener('click', function (e) {
+
+
+        const selectedChoice = e.target;
+        selectedChoice.classList.add("incorrect-answer");
+
+    });
+});
