@@ -189,7 +189,7 @@ ol li{
 
 #progress-bar-full{
     height: 100%;
-    border: 0.2rem solid rgb(137, 46, 255);
+    background-color: rgb(137, 46, 255);
     width: 0%;
 }
 
@@ -206,13 +206,9 @@ ol li{
     }
 }
 
-
-
 #quiz-content{
     margin-top: 10rem;
 }
-
-
 
 #question p{
     margin: 2rem;
@@ -242,5 +238,9 @@ ol li{
 
 .incorrect-answer{
     background-color: #ff0000;
+}
+
+#timer-count{
+    font-size: 2rem;
 }
 
