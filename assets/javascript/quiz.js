@@ -1,15 +1,18 @@
 const progressHeading = document.getElementById(`progress-heading`);
 const progressBar = document.getElementById(`progress-bar`);
 const progressBarFull = document.getElementById("progress-bar-full");
-const timer = document.getElementById("timer-count");
+const timeCount = document.getElementById("timer-count");
 const question = document.getElementById(`api-question`);
 const answers = Array.from(document.getElementsByClassName(`answers`));
 
 let currentQuestion = {};
-let questionCounter = 0;
+let questionCounter = 1;
 let startTime = 10;
 let acceptingAnswers = false;
 let questionList = [];
+let score = 0;
+let questionIndex = 0;
+let counter;
 
 function getQuizData(quizData){
     var xhr = new XMLHttpRequest();
@@ -25,62 +28,92 @@ function getQuizData(quizData){
 
 }
 
-function printDataToConsole(data){
-    console.log(data);
+nextQuestion();
+
+function nextQuestion(){
+
+    getQuizData(function(quizData){
+
+        timeCount.style.color = null;
+        startTimer(startTime);
+        
+        if (questionIndex === 20) {
+            localStorage.setItem('mostRecentScore', score);
+            //go to the end page
+            window.location.href('/end-page.html');
+        }
+
+        progressHeading.innerText = `Question ${questionCounter} of 20`;
+        progressBarFull.style.width = `${(questionCounter / 20) * 100}%`;
+
+        currentQuestion = quizData.results[questionIndex];
+
+        question.innerHTML = `${currentQuestion.question}`;
+
+        correctAnswer = answers[Math.floor(Math.random()*answers.length)];
+        correctAnswer.innerHTML = `${currentQuestion.correct_answer}`;
+        
+        for( i=j=0 ; j<3 && i < 4 ; i++){
+            if(answers[i] == correctAnswer){
+            }
+            else{
+                answers[i].innerHTML = `${currentQuestion.incorrect_answers[j]}`;
+                j++;
+            }
+        };
+    })
 }
 
-getQuizData( printDataToConsole);
+function startTimer(time){
+    counter = setInterval(timer, 1000);
+    function timer(){
+        timeCount.innerText = time;
+        time--;
+        if(time < 5){
+            timeCount.style.color = "red";
+        }
+        if(time < 0){
+            clearInterval(counter);
+            timeCount.innerText = "Out of Time!";
+            questionIndex++;
+            questionCounter++;
+            correctAnswer.classList.add("correct-answer");
+            setTimeout(() => {
+                correctAnswer.classList.remove("correct-answer");
+                timeCount.style.color = null;
+                nextQuestion();
+            }, 1000);
+        }
+    }
 
-getQuizData(function(quizData){
-
-    questionIndex = 0;
-    currentQuestion = quizData.results[questionIndex];
-    
-    getQuestion();
-    getAnswers();
-})
-
-function getQuestion(){
-
-    question.innerHTML = `${currentQuestion.question}`;
 }
 
-function getAnswers(){
+// Determine what happens when a correct/incorrect answer is clicked
 
-    correctAnswer = answers[Math.floor(Math.random()*answers.length)];
-    console.log(correctAnswer);
-    correctAnswer.innerHTML = `${currentQuestion.correct_answer}`;
+answers.forEach(function(answer) {
+answer.addEventListener("click", clickFunction);
+function clickFunction(e) {
 
-    var answerOptions = new Array();
- 
-    for( i=j=0 ; j<3 && i < 4 ; i++){
-        if(answers[i] == correctAnswer){
-            console.log(answers[i]);
-            var correctAnswerEntry = new Array();
-            correctAnswerEntry = [ currentQuestion.correct_answer , "Correct" ];
-            answerOptions.push(correctAnswerEntry);
-            acceptingAnswers = true;
+        const selectedAnswer = e.target;
+
+        if(selectedAnswer == correctAnswer){
+            selectedAnswer.classList.add("correct-answer");
+            score++;
         }
         else{
-            answers[i].innerHTML = `${currentQuestion.incorrect_answers[j]}`;
-            console.log(answers[i]);
-            var incorrectAnswerEntry = new Array();
-            incorrectAnswerEntry = [ currentQuestion.incorrect_answers[j] , "Incorrect" ];
-            answerOptions.push(incorrectAnswerEntry);
-            j++;
+            selectedAnswer.classList.add("incorrect-answer");
         }
-    };
 
-    console.log(answerOptions);
+        questionIndex++;
+        questionCounter++;
+        setTimeout(() => {
+            selectedAnswer.classList.remove("incorrect-answer");
+            selectedAnswer.classList.remove("correct-answer");
+            clearInterval(counter);
+
+            nextQuestion();
+        }, 1000);
+
+    
 }
-
-
-answers.forEach((answersOptions) => {
-    answersOptions.addEventListener('click', function (e) {
-
-
-        const selectedChoice = e.target;
-        selectedChoice.classList.add("incorrect-answer");
-
-    });
 });
