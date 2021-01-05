@@ -5,6 +5,8 @@ const timeCount = document.getElementById("timer-count");
 const question = document.getElementById(`api-question`);
 const nextQuestionBtn = document.getElementById(`next-question-btn`);
 const answers = Array.from(document.getElementsByClassName(`answers`));
+const categoryId = localStorage.getItem(`categoryId`);
+const difficulty = localStorage.getItem(`difficulty`);
 
 let currentQuestion = {};
 let questionCounter = 1;
@@ -25,7 +27,11 @@ function getQuizData(quizData){
         }
     }
 
-    xhr.open( "GET" , "https://opentdb.com/api.php?amount=20&category=9&difficulty=easy&type=multiple");
+    const url = `https://opentdb.com/api.php?amount=20&category=${categoryId}&difficulty=${difficulty}&type=multiple`;
+
+    console.log(url);
+
+    xhr.open( "GET" , url);
     xhr.send();
 }
 
