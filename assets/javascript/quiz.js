@@ -29,8 +29,6 @@ function getQuizData(quizData){
 
     const url = `https://opentdb.com/api.php?amount=20&category=${categoryId}&difficulty=${difficulty}&type=multiple`;
 
-    console.log(url);
-
     xhr.open( "GET" , url);
     xhr.send();
 }
@@ -43,7 +41,6 @@ getQuizData(function(quizData){
   
         if (questionIndex === 20) {
             localStorage.setItem('finalScore', score);
-            //go to the end page
             return window.location.href = '/score.html' ;
         }
 
@@ -52,12 +49,19 @@ getQuizData(function(quizData){
         timeCount.style.color = null;
         startTimer(startTime);
 
+        // Updates the progress bar as question counter increases
         progressHeading.innerText = `Question ${questionCounter} of 20`;
         progressBarFull.style.width = `${(questionCounter / 20) * 100}%`;
+
+        // Takes the next question from the API
         currentQuestion = quizData.results[questionIndex];
         question.innerHTML = `${currentQuestion.question}`;
+
+        // Assigns the correct answer to a random choice
         correctAnswer = answers[Math.floor(Math.random()*answers.length)];
         correctAnswer.innerHTML = `${currentQuestion.correct_answer}`;
+
+        // Assigns the incorrect answers to remaining choices
         for( i=j=0 ; j<3 && i < 4 ; i++){
             if(answers[i] == correctAnswer){
             }
@@ -75,7 +79,7 @@ getQuizData(function(quizData){
             timeCount.innerText = time;
             time--;
             // Once timer is under 5, it's color turns red
-            if(time < 5){
+            if(time < 5 || time == 0){
                 timeCount.style.color = "red";
             }
             // Once timer is below 0, show "Out Of Time" , stop accepting answers and show "Next Question" button
