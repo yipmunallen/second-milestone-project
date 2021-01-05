@@ -244,3 +244,12 @@ ol li{
     font-size: 2rem;
 }
 
+#next-question-btn{
+    visibility: hidden;
+}
+
+/* SCORE */
+
+#final-score, span{
+    font-size: 3rem;
+}
