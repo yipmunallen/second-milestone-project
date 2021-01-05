@@ -11,8 +11,11 @@ startButton.addEventListener('click', startQuiz);
 function startQuiz() {
     try{
       var categoryId = category.value;
-      console.log(categoryId + "Settings page");
+      localStorage.setItem("categoryId", categoryId );
+
       var difficulty = getDifficulty();
+      localStorage.setItem("difficulty", difficulty );
+      
       goToQuiz();
 
     }catch(error){
