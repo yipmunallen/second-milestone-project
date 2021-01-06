@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>QUIZ | Feedback</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+       (function(){
+            emailjs.init("user_uHtxsHaZUH9ZL3GbBFeeM");
+       })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="center">
+            <div class="title" >
+                <h1>Feedback</h1>
+            </div>
+            <div>
+                <h4 class="text-center">Please get in touch with your feedback on the quiz!</h4>
+                <br>
+                <div class="center-form">
+                    <form onsubmit="return sendMail(this);">
+                        <input class="form-control" type="text" name="name" id="fullname" placeholder="Name" required >
+                        <input class="form-control" type="email" name="email" id="emailaddress" placeholder="Email" required >
+                        <textarea class="form-control" rows="10" name="message" id="feedbacksummary" placeholder="Message Description" required ></textarea>
+                        <div class="form-row text-center">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <a href="/settings.html" id="start-btn" class="btns hvr-grow-shadow">Play Again<i class="fas fa-play-circle"></i></a>
+                <a href="/index.html" id="rules-btn" class="btns hvr-grow-shadow">Home<i class="fas fa-home"></i></a>
+            </div>
+        </div>
+    </div>
+    <script src="assets/javascript/feedback.js"></script>
+</body>
+</html>
