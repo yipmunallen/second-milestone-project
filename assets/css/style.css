@@ -35,7 +35,7 @@ h1{
 
 .container{
     height: 100%;
-    width: 100%;
+   /* width: 100%; */
     text-align: center;
     margin: 0 auto;
     max-width: 60rem;
@@ -278,6 +278,14 @@ ol li{
 
 /* SCORE */
 
-#final-score, span{
+#final-score{
+    padding-bottom: 3rem;
+}
+
+#final-score > p, span{
     font-size: 3rem;
+}
+
+#final-score > span{
+    color: red;
 }
