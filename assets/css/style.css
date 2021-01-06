@@ -13,10 +13,19 @@ body{
     color: #FFFFFF;
 }
 
+
 h1{
     font-family: Staatliches, cursive;
-    font-size: 7.5rem;
-    margin-bottom: 4rem;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width:640px){
+    h1{
+        font-family: Staatliches, cursive;
+        font-size: 7.5rem;
+        margin-bottom: 4rem;
+    }
 }
 
 .content{
@@ -25,12 +34,11 @@ h1{
 }
 
 .container{
-    height: 100vh;
+    height: 100%;
     width: 100%;
     text-align: center;
     margin: 0 auto;
     max-width: 60rem;
-    padding: 2rem;
 }
 
 .center{
@@ -69,13 +77,29 @@ h1{
     margin: 0 auto;
     margin-bottom: 2rem;
     margin-top: 2rem;
-    padding: 3rem;
-    font-size: 2.5rem;
+    padding: 1rem;
+    font-size: 2rem;
     color: rgb(49, 0, 163);
     text-decoration: none;
     border-radius: 1rem;
     max-width: 30rem;
     min-width: 10rem;
+}
+
+@media (min-width:640px){
+    .btns{
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        padding: 3rem;
+        font-size: 2.5rem;
+        color: rgb(49, 0, 163);
+        text-decoration: none;
+        border-radius: 1rem;
+        max-width: 30rem;
+        min-width: 10rem;
+    }
 }
 
 button {
@@ -95,6 +119,10 @@ button {
 
 #back-btn{
     background-color:#F93D13;
+}
+
+#feedback-btn{
+    background-color: rgb(219, 223, 0);
 }
 
 .fas{
