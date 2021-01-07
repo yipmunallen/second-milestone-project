@@ -11,7 +11,7 @@ The live project can be viewed [here](https://yipmunallen.github.io/second-miles
    1. [Users stories](#users-stories)
    1. [Design](#design)
       1. [Wireframes](#design)
-      1. [Final Sections](#final-sections)
+      1. [Final Pages](#final-pages)
       1. [Colour Scheme](#colour-scheme)
       1. [Typography](#typography)
 1. [Technologies](#technologies-used)
