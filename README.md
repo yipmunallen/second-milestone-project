@@ -20,7 +20,7 @@ The live project can be viewed [here](https://yipmunallen.github.io/second-miles
 1. [Testing](#testing)
     1. [Site Goals](#site-goals)
    1. [User stories](#user-stories)
-   1. [Functionality](#functionality)
+   1. [Additional Functionality](#Additional-Functionality)
    1. [Compatibility](#compatibility)
    1. [Bugs](#bugs)
    1. [Validation](#validation)
@@ -119,6 +119,7 @@ Contains a form that allows users to quickly and easily contact the site owner w
 2. Be able to customise my experience, by choosing the category and difficulty of each round
    1. The "Settings" page gives the user the option to choose from a range of categories, or to select "No Category" whereby they will be given a random selection
    2. The "Settings" page allows the user to choose from three difficulties: Easy, Medium and Hard.
+   3. This has been tested to ensure that if a difficulty is not selected, an error will appear asking the user to select one
 1. Know whether I got the question correct or incorrect
    1. Once an answer is selected, the answer will turn green if correct, and red if incorrect. 
 1. Learn the correct answer if I got a question wrong so that I can learn
@@ -128,12 +129,13 @@ Contains a form that allows users to quickly and easily contact the site owner w
 1. Be able to give feedback on my experience
    1. The user can click on the "Submit Feedback" button at the end of each game to redirect to the "Feedback" page
    1. From the "Feedback" page, the user can input their Name, Email and Message to be submitted using the EmailJS API
+   1. if the "submit" button is selected with some fields left unfilled, an error will appear asking the user to complete the unfilled fields. Similarly, if an email address is inputted without an "@" sign, an error will also appear, stating that this is not a valid email
 
-#### Functionality
+#### Additional Functionality
 
-  - __Settings Page__ - This has been tested to ensure that if a difficulty is not selected, an error will appear asking the user to select one.
+  - __Allowing single answer__-  This has been tested to ensure that once an answer is clicked, all other answer buttons
 
-  - __Feedback Form__ - This has been tested to ensure that if the "submit" button is selected with some fields left unfilled, an error will appear asking the user to complete the unfilled fields. Similarly, if an email address is inputted without an "@" sign, an error will also appear, stating that this is not a valid email.
+  - __Next Question Button__- This has been tested to ensure that it will appear whenever a selection is made, or when the timer runs out
 
 #### Compatibility
 
