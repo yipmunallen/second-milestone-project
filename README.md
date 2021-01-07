@@ -51,10 +51,10 @@ As a user I want to:
 - #### Wireframes
 
   - [Home](https://github.com/yipmunallen/Second-Milestone-Project/blob/master/assets/images/homewireframe.png)
-  - [Rules](https://github.com/yipmunallen/First-Milestone-Project/blob/master/assets/images/ruleswireframe.png)
-  - [Settings](https://github.com/yipmunallen/First-Milestone-Project/blob/master/assets/images/settingswireframe.png)
-  - [Quiz](https://github.com/yipmunallen/First-Milestone-Project/blob/master/assets/images/quizwireframe.png)
-  - [Score](https://github.com/yipmunallen/First-Milestone-Project/blob/master/assets/images/scorewireframe.png)
+  - [Rules](https://github.com/yipmunallen/Second-Milestone-Project/blob/master/assets/images/ruleswireframe.png)
+  - [Settings](https://github.com/yipmunallen/Second-Milestone-Project/blob/master/assets/images/settingswireframe.png)
+  - [Quiz](https://github.com/yipmunallen/Second-Milestone-Project/blob/master/assets/images/quizwireframe.png)
+  - [Score](https://github.com/yipmunallen/Second-Milestone-Project/blob/master/assets/images/scorewireframe.png)
 
 - #### Final Pages 
 
