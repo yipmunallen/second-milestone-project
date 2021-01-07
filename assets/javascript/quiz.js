@@ -11,12 +11,11 @@ const difficulty = localStorage.getItem(`difficulty`);
 let currentQuestion = {};
 let questionCounter = 1;
 let startTime = 10;
-let questionList = [];
 let score = 0;
 let questionIndex = 0;
 let counter;
-let outOfTime = false;
 let acceptingAnswers;
+let enableNextQuestionBtn;
 
 function getQuizData(quizData){
     var xhr = new XMLHttpRequest();
@@ -44,10 +43,10 @@ getQuizData(function(quizData){
             return window.location.href = '/score.html' ;
         }
 
-        acceptingAnswers = true;
         nextQuestionBtn.style.visibility = 'hidden';
         timeCount.style.color = null;
         startTimer(startTime);
+        acceptingAnswers = true;
 
         // Updates the progress bar as question counter increases
         progressHeading.innerText = `Question ${questionCounter} of 20`;
@@ -70,7 +69,7 @@ getQuizData(function(quizData){
                 j++;
             }
         };
-        }
+    }
 
     // Timer starts at 10 once nextQuestion() runs
     function startTimer(time){
@@ -79,24 +78,28 @@ getQuizData(function(quizData){
             timeCount.innerText = time;
             time--;
             // Once timer is under 5, it's color turns red
-            if(time < 5 || time == 0){
+            if(time < 5 && time > 0 || time === 0){
                 timeCount.style.color = "red";
             }
-            // Once timer is below 0, show "Out Of Time" , stop accepting answers and show "Next Question" button
-            if(time < 0){
+            else if(time < 0){
+                // No longer accept answers
+                acceptingAnswers = false;
                 clearInterval(counter);
                 timeCount.innerText = "Out of Time!";
                 questionIndex++;
                 questionCounter++;
                 correctAnswer.classList.add("correct-answer");
                 nextQuestionBtn.style.visibility = 'visible';
-                acceptingAnswers = false;
-                nextQuestionBtn.addEventListener("click", goToNextQuestion);
-                    function goToNextQuestion(e) {
-
-                    correctAnswer.classList.remove("correct-answer");
-                    timeCount.style.color = null;
-                    nextQuestion();        
+                enableNextQuestionBtn = true;
+                nextQuestionBtn.addEventListener("click", goToNextQuestionTimeOut);
+                    function goToNextQuestionTimeOut(e) {
+                        if(enableNextQuestionBtn === true){  
+                            // Button can only be clicked once so nextQuestion() isn't run several times
+                            enableNextQuestionBtn = false              
+                            correctAnswer.classList.remove("correct-answer");
+                            timeCount.style.color = null;
+                            nextQuestion();      
+                        }  
                 }
             }
         }
@@ -104,11 +107,10 @@ getQuizData(function(quizData){
     }
 
     // Determines what happens when a correct/incorrect answer is clicked
-
     answers.forEach(function(answer) {
         answer.addEventListener("click", clickFunction);
         function clickFunction(e) {
-                if (!acceptingAnswers) return;
+            if(acceptingAnswers === true){
                 // Stop timer 
                 clearInterval(counter);
                 // Stop accepting answers
@@ -116,28 +118,34 @@ getQuizData(function(quizData){
 
                 const selectedAnswer = e.target;
 
-                // If correct answer has been selected, turn div green and increase score
+                // If correct answer has been selected, turn answer green and increase score
                 if(selectedAnswer == correctAnswer){
                         selectedAnswer.classList.add("correct-answer");
                         score++;
-                        console.log(score);
                 }
-                // If incorrect answer has been selected, turn div red
+                // If incorrect answer has been selected, turn answer red and correct answer green
                 else{
                         selectedAnswer.classList.add("incorrect-answer");
+                        correctAnswer.classList.add("correct-answer");
                 }
-
                 questionIndex++;
                 questionCounter++;
                 nextQuestionBtn.style.visibility = 'visible';
-                acceptingAnswers = false;
+                enableNextQuestionBtn = true;
                 nextQuestionBtn.addEventListener("click", goToNextQuestion);
-                    function goToNextQuestion(e) {
+                function goToNextQuestion(e) {
+                    if(enableNextQuestionBtn === true){  
+                        enableNextQuestionBtn = false  
+                        
+                        correctAnswer.classList.remove("correct-answer");
+                        nextQuestion();    
+                    }
                     selectedAnswer.classList.remove("incorrect-answer");
-                    selectedAnswer.classList.remove("correct-answer");
-                    clearInterval(counter);
-                    nextQuestion();    
-                }
+                    selectedAnswer.classList.remove("correct-answer"); 
+                    }
+            }
+
         }
+
     });
 })
