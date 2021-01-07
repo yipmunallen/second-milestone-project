@@ -19,7 +19,7 @@ The live project can be viewed [here](https://yipmunallen.github.io/second-miles
    1. [Frameworks, Libraries & Programs](#frameworks-libraries-programs)
 1. [Testing](#testing)
     1. [Site Goals](#site-goals)
-   1. [User stories](#testing-user-stories)
+   1. [User stories](#user-stories)
    1. [Functionality](#functionality)
    1. [Compatibility](#compatibility)
    1. [Bugs](#bugs)
