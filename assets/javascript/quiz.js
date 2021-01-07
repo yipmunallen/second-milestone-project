@@ -40,7 +40,7 @@ getQuizData(function(quizData){
   
         if (questionIndex === 20) {
             localStorage.setItem('finalScore', score);
-            return window.location.href = '/score.html' ;
+            return window.location.href = 'score.html' ;
         }
 
         nextQuestionBtn.style.visibility = 'hidden';
