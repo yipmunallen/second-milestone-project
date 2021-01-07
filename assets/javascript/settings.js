@@ -1,3 +1,5 @@
+// Used https://github.com/JakobKIT/vanilla-quiz/blob/master/quiz/settings.js as reference when writing this code
+
 const category = document.querySelector('#category');
 const difficulty = [
       document.querySelector('#easy'),

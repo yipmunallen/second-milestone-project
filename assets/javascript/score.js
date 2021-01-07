@@ -7,5 +7,5 @@ showScore();
 
 function showScore(){
     
-    score.innerText = finalScore
+    score.innerText = finalScore;
 }
