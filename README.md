@@ -58,21 +58,19 @@ As a user I want to:
 
 - #### Final Pages 
 
-  -  [Home](https://github.com/yipmunallen/Second-Milestone-Project/blob/master/assets/images/homepage.png) -
-Provides some basic information about the site owner along with a summary written to introduce them.
+  -  [Home](https://github.com/yipmunallen/Second-Milestone-Project/blob/master/assets/images/homepage.png)
 
   - [Rules](https://github.com/yipmunallen/Second-Milestone-Project/blob/master/assets/images/rulespage.png) -
-Gives an overview of the owner's work experience and education history.
+Outlines the quiz rules.
 
   - [Settings](https://github.com/yipmunallen/Second-Milestone-Project/blob/master/assets/images/settingspage.png) -
-Highlights some of the core skills of the site owner that recruiters may be looking out for.
+Allows user to apply settings to quiz.
 
   - [Quiz](https://github.com/yipmunallen/Second-Milestone-Project/blob/master/assets/images/quizpage.png) -
-Designed to show certain projects that the website owner has worked on. Text giving a summary of the project is paired with an image / screenshot of the project. 
-Both the image and text are links to the website/project that is being described. 
+Main quiz page
 
   - [Score](https://github.com/yipmunallen/Second-Milestone-Project/blob/master/assets/images/scorepage.png) -
-Contains a form that allows users to quickly and easily contact the site owner without having to navigate away from the page.
+Displays user's score
 
   - [Feedback](https://github.com/yipmunallen/Second-Milestone-Project/blob/master/assets/images/feedbackpage.png) -
 Contains a form that allows users to quickly and easily contact the site owner without having to navigate away from the page.
