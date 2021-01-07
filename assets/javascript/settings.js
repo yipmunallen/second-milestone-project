@@ -24,7 +24,7 @@ function startQuiz() {
   }
 
 function  goToQuiz() {
-    window.location.href="/quiz.html";
+    window.location.href="quiz.html";
   }
 
 function  getDifficulty() {
