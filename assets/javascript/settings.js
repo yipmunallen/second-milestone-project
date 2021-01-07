@@ -23,11 +23,11 @@ function startQuiz() {
     }
   }
 
-function  goToQuiz() {
+function goToQuiz() {
     window.location.href="quiz.html";
   }
 
-function  getDifficulty() {
+function getDifficulty() {
     var chosenDifficulty = difficulty.filter(element => element.checked);
 
     if (chosenDifficulty.length === 1) {
