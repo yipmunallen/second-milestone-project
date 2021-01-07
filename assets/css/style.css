@@ -13,7 +13,6 @@ body{
     color: #FFFFFF;
 }
 
-
 h1{
     font-family: Staatliches, cursive;
     font-size: 5rem;
@@ -53,7 +52,6 @@ h1{
 /* BUTTONS */
 
 /* "Grow Shadow" from https://github.com/IanLunn/Hover/blob/master/css/hover.css */
-
 .hvr-grow-shadow {
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -132,7 +130,6 @@ button {
 
 /* RULES */
 
-
 #rules-list{
     text-align: left;
     margin-bottom: 4rem;
@@ -200,9 +197,17 @@ ol li{
 
 /* QUIZ */
 
+.question{
+    background-color: grey;
+}
+
+#quiz-header > div {
+    display: inline-block;
+}
+
 .quiz-heading{
     font-family:Staatliches;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: 1rem 0;
 }
 
@@ -221,21 +226,21 @@ ol li{
     width: 0%;
 }
 
-@media (min-width:700px){
+@media (min-width:640px){
 
-    #quiz-header > div {
-        display: inline-block;
-    }
+
     #progress{
         float:left;
     }
     #timer{
         float:right;
     }
-}
-
-#quiz-content{
-    margin-top: 10rem;
+    #quiz-content{
+        margin-top: 10rem;
+    }
+    .quiz-heading{
+        font-size: 2.5rem;
+    }
 }
 
 #question p{
@@ -287,5 +292,5 @@ ol li{
 }
 
 #final-score > span{
-    color: red;
+    color: green;
 }
