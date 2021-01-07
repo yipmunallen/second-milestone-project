@@ -131,7 +131,7 @@ Contains a form that allows users to quickly and easily contact the site owner w
 
 #### Additional Functionality
 
-  - __Allowing single answer__-  This has been tested to ensure that once an answer is clicked, all other answer buttons
+  - __Allowing single answer__-  This has been tested to ensure that once an answer is clicked, all other answer buttons are disabled
 
   - __Next Question Button__- This has been tested to ensure that it will appear whenever a selection is made, or when the timer runs out
 
