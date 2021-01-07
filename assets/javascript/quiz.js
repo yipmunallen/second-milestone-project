@@ -1,3 +1,6 @@
+/* Used https://github.com/jamesqquick/Build-A-Quiz-App-With-HTML-CSS-and-JavaScript/blob/master/11.%20Fetch%20API%20Questions%20from%20Open%20Trivia%20API/game.js 
+ as reference when writing this code */
+
 const progressHeading = document.getElementById(`progress-heading`);
 const progressBar = document.getElementById(`progress-bar`);
 const progressBarFull = document.getElementById("progress-bar-full");
@@ -24,7 +27,7 @@ function getQuizData(quizData){
         if(this.readyState == 4 && this.status == 200 ){
             quizData(JSON.parse(this.responseText));
         }
-    }
+    };
 
     const url = `https://opentdb.com/api.php?amount=20&category=${categoryId}&difficulty=${difficulty}&type=multiple`;
 
@@ -68,7 +71,7 @@ getQuizData(function(quizData){
                 answers[i].innerHTML = `${currentQuestion.incorrect_answers[j]}`;
                 j++;
             }
-        };
+        }
     }
 
     // Timer starts at 10 once nextQuestion() runs
@@ -92,24 +95,39 @@ getQuizData(function(quizData){
                 nextQuestionBtn.style.visibility = 'visible';
                 enableNextQuestionBtn = true;
                 nextQuestionBtn.addEventListener("click", goToNextQuestionTimeOut);
-                    function goToNextQuestionTimeOut(e) {
-                        if(enableNextQuestionBtn === true){  
-                            // Button can only be clicked once so nextQuestion() isn't run several times
-                            enableNextQuestionBtn = false              
-                            correctAnswer.classList.remove("correct-answer");
-                            timeCount.style.color = null;
-                            nextQuestion();      
-                        }  
-                }
             }
         }
 
+    }
+
+    function goToNextQuestionTimeOut(e) {
+        if(enableNextQuestionBtn === true){  
+            // Button can only be clicked once so nextQuestion() isn't run several times
+            enableNextQuestionBtn = false;              
+            correctAnswer.classList.remove("correct-answer");
+            timeCount.style.color = null;
+            nextQuestion();      
+        }  
     }
 
     // Determines what happens when a correct/incorrect answer is clicked
     answers.forEach(function(answer) {
         answer.addEventListener("click", clickFunction);
         function clickFunction(e) {
+
+            const selectedAnswer = e.target;
+
+            function goToNextQuestion(e) {
+                if(enableNextQuestionBtn === true){  
+                    enableNextQuestionBtn = false;  
+                    
+                    correctAnswer.classList.remove("correct-answer");
+                    nextQuestion();    
+                }
+            selectedAnswer.classList.remove("incorrect-answer");
+            selectedAnswer.classList.remove("correct-answer"); 
+            }
+
             if(acceptingAnswers === true){
                 // Stop timer 
                 clearInterval(counter);
@@ -133,19 +151,7 @@ getQuizData(function(quizData){
                 nextQuestionBtn.style.visibility = 'visible';
                 enableNextQuestionBtn = true;
                 nextQuestionBtn.addEventListener("click", goToNextQuestion);
-                function goToNextQuestion(e) {
-                    if(enableNextQuestionBtn === true){  
-                        enableNextQuestionBtn = false  
-                        
-                        correctAnswer.classList.remove("correct-answer");
-                        nextQuestion();    
-                    }
-                    selectedAnswer.classList.remove("incorrect-answer");
-                    selectedAnswer.classList.remove("correct-answer"); 
-                    }
             }
-
         }
-
     });
-})
+});
