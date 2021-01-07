@@ -14,14 +14,14 @@ body{
 }
 
 h1{
-    font-family: Staatliches, cursive;
+    font-family: Staatliches, sans-serif;
     font-size: 5rem;
     margin-bottom: 2rem;
 }
 
 @media (min-width:640px){
     h1{
-        font-family: Staatliches, cursive;
+        font-family: Staatliches, sans-serif;
         font-size: 7.5rem;
         margin-bottom: 4rem;
     }
@@ -141,7 +141,6 @@ ol li{
 }
 
 /* SETTINGS */
-
 .settings-heading{
     text-decoration: underline;
     display: block;
