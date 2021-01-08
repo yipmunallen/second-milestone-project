@@ -152,6 +152,8 @@ In addition:
 
   - __Next Question Button__- This has been tested to ensure that it will appear whenever a selection is made, or when the timer runs out
 
+  - __404 Error__- This has been tested to ensure that the 404 error page will show if the error occurs, with a link that redirects to the home page.
+
 ### Compatibility
 
   - __Devices__ - The website has been viewed and tested on a range of devices including Desktop, Laptop, Iphone 6/7/8/X, Ipad and Samsung Galaxy Tab, retaining structure and functionality.
